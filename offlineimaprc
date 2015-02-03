@@ -1,0 +1,45 @@
+[general]
+ui = ttyui
+accounts = USERNAME
+pythonfile=~/.mutt/offlineimap.py
+fsync = False
+maxsyncaccounts = 1
+
+[Account USERNAME]
+localrepository = USERNAME-Local
+remoterepository = USERNAME-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+autorefresh = 5
+quick = 10
+
+
+[Repository USERNAME-Local]
+type = Maildir
+localfolders = ~/.mail/inbox
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository USERNAME-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = USERNAME@gmail.com
+remotepass = PASSWORD
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+keepalive = 60
+holdconnectionopen = yes
