@@ -108,6 +108,8 @@ bind pager R  group-reply
 
 # View attachments properly.
 bind attach <return> view-mailcap
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
 
 # Compose View Options -------------------------------
 set realname = "REAL NAME"           # who am i?
