@@ -1,45 +1,83 @@
 [general]
-ui = ttyui
-accounts = USERNAME
-pythonfile=~/.mutt/offlineimap.py
-fsync = False
-maxsyncaccounts = 1
+accounts = Gmail,Outlook,Yahoo
+maxsyncaccounts = 4
+pythonfile = ~/.offlineimap.py
 
-[Account USERNAME]
-localrepository = USERNAME-Local
-remoterepository = USERNAME-Remote
-status_backend = sqlite
-postsynchook = notmuch new
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
 autorefresh = 5
 quick = 10
 
-
-[Repository USERNAME-Local]
+[Repository Gmail-Local]
 type = Maildir
-localfolders = ~/.mail/inbox
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
-                            }.get(folder, folder)
+localfolders = ~/mail/Gmail
 
-[Repository USERNAME-Remote]
-maxconnections = 1
-type = Gmail
-remoteuser = USERNAME@gmail.com
-remotepass = PASSWORD
-realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
-                            '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'flagged',
-                            '[Gmail]/Trash':     'trash',
-                            '[Gmail]/All Mail':  'archive',
-                            }.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
-                                             '[Gmail]/Important',
-                                             '[Gmail]/Spam',
-                                             ]
+[Repository Gmail-Remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = you [at] gmail [dot] com
+remotepasseval = get_pass("Gmail")
+ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-keepalive = 60
-holdconnectionopen = yes
+keepalive = 120
+createfolders = False
+realdelete = no
+holdconnectionopen = true
+
+
+                               
+[Account Outlook]
+localrepository = Outlook-Local
+remoterepository = Outlook-Remote
+autorefresh = 30
+quick = 3
+
+[Repository Outlook-Local]
+type = Maildir
+localfolders = ~/mail/Outlook
+
+[Repository Outlook-Remote]
+remotehost = imap-mail.outlook.com
+remoteuser = you [at] live [dot] com
+remotepasseval = get_pass("Outlook")
+type = IMAP
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+holdconnectionopen = true
+keepalive = 120
+createfolders = False
+realdelete = yes
+
+
+
+[Account Yahoo]
+localrepository = Yahoo-Local
+remoterepository = Yahoo-Remote
+autorefresh = 60
+quick = 4
+
+[Repository Yahoo-Local]
+type = Maildir
+localfolders = ~/mail/Yahoo
+
+[Repository Yahoo-Remote]
+remotehost = imap.mail.yahoo.com
+remoteuser = you [at] yahoo [dot] com
+remotepasseval = get_pass("Yahoo")
+type = IMAP
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+holdconnectionopen = true
+keepalive = 120
+createfolders = False
+realdelete = yes
+
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
