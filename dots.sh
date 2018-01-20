@@ -82,3 +82,5 @@ ln -s ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 ln -s ${BASEDIR}/zsh $HOME/.zsh
 ln -s ${BASEDIR}/zsh/zshrc $HOME/.zshrc
 
+# nvim
+ln -s ${BASEDIR}/nvim $HOME/.config/nvim
