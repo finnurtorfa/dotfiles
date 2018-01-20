@@ -79,7 +79,6 @@ ln -s ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
 ln -s ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 
 # zsh
-#ln -s ${BASEDIR}/zsh/oh-my-zsh $HOME/.oh-my-zsh
-#ln -s ${BASEDIR}/zsh/zprofile $HOME/.zprofile
-#ln -s ${BASEDIR}/zsh/zshrc $HOME/.zshrc
+ln -s ${BASEDIR}/zsh $HOME/.zsh
+ln -s ${BASEDIR}/zsh/zshrc $HOME/.zshrc
 
