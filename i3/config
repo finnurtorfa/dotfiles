@@ -120,23 +120,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Audio Controls
-bindsym XF86AudioPlay exec "mpc toggle"
-bindsym XF86AudioStop exec "mpc stop"
-bindsym XF86AudioNext exec "mpc next"
-bindsym XF86AudioPrev exec "mpc prev"
+bindsym mod1+a exec "mpc toggle"
+bindsym mod1+s exec "mpc stop"
+bindsym mod1+x exec "mpc next"
+bindsym mod1+z exec "mpc prev"
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym mod1+a exec playerctl play
-bindsym mod1+s exec playerctl pause
-bindsym mod1+x exec playerctl next
-bindsym mod1+z exec playerctl previous
 
 #Backlight Controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-#bindsym Mod1+d exec --no-startup-id sudo bright_down
-#bindsym Mod1+i exec --no-startup-id sudo bright_up
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down
 
 #APPS
 bindsym $mod+Return exec --no-startup-id urxvt
@@ -162,7 +156,7 @@ bindsym Mod1+p exec $HOME/bin/screen active
 
 exec --no-startup-id i3-msg "workspace 1; exec chromium; layout tabbed"
 exec --no-startup-id i3-msg "workspace 2; exec urxvt"
-exec --no-startup-id i3-msg "workspace 4; exec spotify"
+exec --no-startup-id i3-msg "workspace 4; exec urxvt -e ncmpcpp"
 
 exec --no-startup-id sh $HOME/bin/hashwall
 exec --no-startup-id unclutter &

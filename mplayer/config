@@ -7,9 +7,6 @@ vo=xv
 #vo=gl2:yuv=0
 #vo=vaapi
 
-# use pulse for audio output, choose oss4 as fallback 
-ao=pulse
-
 # disable lirc
 nolirc=yes
 
