@@ -23,5 +23,5 @@ conky.config = {
 }
 
 conky.text = [[
-${execpi 120 todo.sh -d ~/.todo/config-conky ls | head -n -2}
+${execpi 120 ~/bin/todo.sh -d ~/.todo/config-conky ls | head -n -2}
 ]]

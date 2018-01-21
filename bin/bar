@@ -72,8 +72,8 @@ get_volume() {
 }
 
 get_bat() {
-    status=$(cat /sys/class/power_supply/BAT0/status)
-    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    status=$(cat /sys/class/power_supply/BAT1/status)
+    capacity=$(cat /sys/class/power_supply/BAT1/capacity)
 
     if [ "$status" == "Charging" ]; then
         printf "%s\\n" "$(icon "") ${capacity}"
@@ -89,10 +89,10 @@ get_bat() {
 }
 
 get_wifi() {
-    wifi="$(echo -e $(iw wlp1s0 link | grep 'SSID' | cut -c 8-))"
+    wifi="$(echo -e $(iwgetid wlp4s0 | grep 'SSID' | cut -c 18-))"
     wifi_icon=""
 
-    printf "%s\\n" "$(icon "$wifi_icon") ${wifi}"
+    printf "%s\\n" "$(icon "$wifi_icon") ${wifi:0:-1}"
 }
 
 
@@ -112,7 +112,8 @@ main() {
 
     # Import colors from 'wal'.
     # https://github.com/dylanaraps/pywal
-    . "${HOME}/.cache/wal/colors.sh"
+    #. "${HOME}/.cache/wal/colors.sh"
+    source "${HOME}/.Xresources.d/colors/nord/nord.sh"
 
     # Loop and print the info.
     while :; do

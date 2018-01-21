@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCREEN_DIR=~/screenshots
+SCREEN_DIR=~/pictures/screenshots
 SCREEN_PROMPT=1
 
 window='root'

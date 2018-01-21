@@ -15,9 +15,6 @@ ln -s ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 # dunst
 ln -s ${BASEDIR}/dunstrc $HOME/.config/dunstrc
 
-# feh
-ln -s ${BASEDIR}/fehbg $HOME/.fehbg
-
 # fontconfig
 ln -s ${BASEDIR}/fontconfig $HOME/.config/fontconfig
 
@@ -66,9 +63,6 @@ ln -s ${BASEDIR}/todo $HOME/.todo
 
 # urlview
 ln -s ${BASEDIR}/urlview $HOME/.urlview
-
-# wallpapers
-ln -s ${BASEDIR}/Xresources.d/wallpapers $HOME/.wallpapers
 
 # weechat
 ln -s ${BASEDIR}/weechat $HOME/.weechat
