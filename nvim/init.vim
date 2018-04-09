@@ -92,6 +92,8 @@ Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sjl/badwolf'
 Plug 'mileszs/ack.vim'
+Plug 'udalov/kotlin-vim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Color scheme

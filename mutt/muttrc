@@ -181,7 +181,7 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # }}}
 # Compose View Options {{{ 
-set realname = "Ajibola Okubanjo"                    # who am I?
+set realname = "Finnur Torfason"                 # who am I?
 set envelope_from                                # which from?
 set sig_dashes                                   # dashes before sig
 set edit_headers                                 # show headers when composing
