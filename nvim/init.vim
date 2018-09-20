@@ -94,6 +94,9 @@ Plug 'sjl/badwolf'
 Plug 'mileszs/ack.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'tpope/vim-surround'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 " Color scheme
@@ -101,4 +104,6 @@ colorscheme badwolf
 
 let g:badwolf_html_link_underline = 0   " Turn off HTML link underlining
 let g:badwolf_css_props_highlight = 1   " Turn on CSS properties highlighting
+
+let g:deoplete#enable_at_startup = 1
 

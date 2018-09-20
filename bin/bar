@@ -47,14 +47,14 @@ get_dbx() {
     printf "%s\\n" "$(icon "$dbx_icon") ${dbx}"
 }
 
-get_mail() {
-    # Get new mail from offlineimap folder.
-    mail="$(echo -e $(ls /home/fstorfa/.mail/Gmail/INBOX/new | wc -l))"
-
-    mail_icon=""
-
-    printf "%s\\n" "$(icon "$mail_icon") ${mail}"
-}
+#get_mail() {
+#    # Get new mail from offlineimap folder.
+#    mail="$(echo -e $(ls /home/fstorfa/.mail/Gmail/INBOX/new | wc -l))"
+#
+#    mail_icon=""
+#
+#    printf "%s\\n" "$(icon "$mail_icon") ${mail}"
+#}
 
 get_volume() {
     # Get the system volume.
@@ -72,8 +72,8 @@ get_volume() {
 }
 
 get_bat() {
-    status=$(cat /sys/class/power_supply/BAT1/status)
-    capacity=$(cat /sys/class/power_supply/BAT1/capacity)
+    status=$(cat /sys/class/power_supply/BAT0/status)
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 
     if [ "$status" == "Charging" ]; then
         printf "%s\\n" "$(icon "") ${capacity}"
@@ -89,7 +89,7 @@ get_bat() {
 }
 
 get_wifi() {
-    wifi="$(echo -e $(iwgetid wlp4s0 | grep 'SSID' | cut -c 18-))"
+    wifi="$(echo -e $(iwgetid wlp61s0 | grep 'SSID' | cut -c 18-))"
     wifi_icon=""
 
     printf "%s\\n" "$(icon "$wifi_icon") ${wifi:0:-1}"
@@ -122,7 +122,7 @@ main() {
         date="$(get_date)"
         song="$(icon "") $(get_song)"
         dbx="$(get_dbx)"
-        mail="$(get_mail)"
+        #mail="$(get_mail)"
         volume="$(get_volume)"
         bat="$(get_bat)"
         wifi="$(get_wifi)"
@@ -130,7 +130,7 @@ main() {
         printf "%s%s%s\\n" \
                "%{l}   ${workspaces}  |  ${window}" \
                "%{c}${date}" \
-               "%{r}${song}  |  ${dbx} ${mail} ${volume} ${bat} ${wifi}    "
+               "%{r}${song}  |  ${dbx} ${volume} ${bat} ${wifi}    "
         sleep .1s
     done |\
 
