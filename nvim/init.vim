@@ -35,6 +35,11 @@ set modelines=0       " Prevent modelines in files from being
                       " default value of 5).
 set lazyredraw        " Only redraw when we need to
 
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
 autocmd! BufWritePost * Neomake   " Run Neomake on every write
 
 " Non-recursive mapping commands for normal mode
@@ -75,6 +80,12 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|d)$',
   \ }
 
+" vim-go configuration
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+
 " Plugins to install
 call plug#begin('~/.config/nvim/plugged/')
 Plug 'benekastah/neomake'
@@ -96,7 +107,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'tpope/vim-surround'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'w0rp/ale'
 call plug#end()
 
 " Color scheme
