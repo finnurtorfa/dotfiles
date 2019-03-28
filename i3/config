@@ -150,6 +150,7 @@ assign [class="Chromium|vivaldi-stable|Firefox"] → 1
 assign [class="MPlayer|Steam"] → 5
 assign [instance="spotify"] → 4
 assign [class="kicad"] → 6
+assign [class="slack"] → 7
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -235,19 +236,13 @@ exec --no-startup-id twmnd
 
 exec --no-startup-id i3-msg "workspace 1; exec chromium; layout tabbed"
 exec --no-startup-id i3-msg "workspace 2; exec urxvt"
-#exec --no-startup-id i3-msg "workspace 4; exec urxvt -e ncmpcpp"
 
-exec --no-startup-id sh $HOME/bin/hashwall
-exec --no-startup-id unclutter &
+exec --no-startup-id slack &
 exec --no-startup-id xss-lock -- i3lock-fancy
-#exec --no-startup-id dropbox &
-exec --no-startup-id anamnesis --start &
 exec --no-startup-id xrandr --dpi 120 &
 exec --no-startup-id redshift &
 exec --no-startup-id udiskie &
-exec --no-startup-id dunst -fn "$DUNST_FONT" -geometry "$DUNST_SIZE" &
-exec --no-startup-id sh $HOME/.todo/todo-conky
-exec --no-startup-id sh $HOME/bin/color-set &
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 # Restore screen layout: this script will also set wallpaper with feh and run polybar
 # We must do this with the script itself because it needs to sleep .1
@@ -258,11 +253,6 @@ exec $HOME/bin/screenlayout.sh
 
 # Disable X bell
 exec --no-startup-id xset -b
-
-# Autostart
-exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id redshift
-
 
 # }}}
 

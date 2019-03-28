@@ -1,6 +1,7 @@
 [colors]
 fg = #222222
 fgdis = #696969
+#bgtime = #fbeaa0
 bgtime = #dba0bb
 bgcoreinfo = #92aee8
 bgwlan = #b3c9af
@@ -8,11 +9,12 @@ bgi3 = #a78371
 bgi3f = #c9a593
 bgdis = #cec388
 bgtray = #b7c993
+bgspotify = #81a65b
 alert = #f99157
 tp = #00000000
 
 [bar/top]
-monitor = HDMI-1
+monitor = HDMI-2
 monitor-fallback = eDP-1
 width = 100%
 height = 30
@@ -38,7 +40,7 @@ font-0 = Roboto Mono:pixelsize=10;1
 font-1 = RobotoMono Nerd Font:pixelsize=10;1
 font-2 = Font Awesome 5 Free:pixelsize=10;1
 
-modules-left = time volume battery wlan
+modules-left = time volume battery wlan spotify
 modules-right = i3 dis
 
 wm-restack = i3
@@ -163,3 +165,16 @@ content = "  "
 content-background = ${colors.bgdis}
 
 click-left = ~/bin/screenlayoutchange.sh
+
+[module/spotify]
+type = custom/script
+interval = 1
+
+format = <label>
+format-margin = 1
+format-padding = 1
+format-background = ${colors.bgspotify}
+
+exec = python ~/bin/spotify_status.py -p ',' -f '{play_pause} {song} - {artist}'
+
+format-underline = #1db954
