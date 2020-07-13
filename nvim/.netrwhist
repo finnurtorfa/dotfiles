@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/fstorfa/.config/i3'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/fstorfa/Downloads/artifacts'
+let g:netrw_dirhist_6='/home/fstorfa/bin/findity/libs/database/model'
+let g:netrw_dirhist_5='/home/fstorfa/bin/findity/libs'
+let g:netrw_dirhist_4='/home/fstorfa/bin/findity/receipt-router/internal/pkg/kivra'
+let g:netrw_dirhist_3='/home/fstorfa/bin/aflafrettir/aflafrettir-api/internal/pkg/storage/story'
+let g:netrw_dirhist_2='/home/fstorfa/bin/findity/filestorage/internal/pkg/routes/handlers/receipt'
+let g:netrw_dirhist_1='/home/fstorfa/bin/backtick/myrstack-rest/src/service/event'
+let g:netrw_dirhist_0='/home/fstorfa/bin/findity/client-api/internal/pkg/routes'
+let g:netrw_dirhist_9='/home/fstorfa/bin/ifdef/kubereleaser/workloads/sandbox/configs'
+let g:netrw_dirhist_8='/home/fstorfa/bin/ifdef/kubereleaser/namespaces'

@@ -1,5 +1,6 @@
 export GOPATH="${HOME}/go"
-export PATH="${GOPATH}:${GOPATH}/bin:${HOME}/bin:${PATH}"
+export GOPRIVATE="gitlab.int.findity.net"
+export PATH="${PATH}:${GOPATH}:${GOPATH}/bin:${HOME}/bin"
 export TERM=rxvt-256color
 
 export ZLSCOLORS="${LS_COLORS}"

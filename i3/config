@@ -104,7 +104,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+space focus mode_toggle
 bindsym $mod+b split h
 bindsym $mod+v split v
-bindsym $mod+m layout stacking
 bindsym $mod+comma layout tabbed
 bindsym $mod+period layout toggle split
 bindsym $mod+Shift+space floating toggle
@@ -133,6 +132,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
+bindsym $mod+m move workspace to output right
 
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -170,18 +170,24 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Audio Controls
-bindsym XF86AudioRaiseVolume exec "pulsemixer --id 0 --change-volume +5 && aplay $HOME/.config/sounds/blop.wav"
 bindsym $mod+F2 exec "pulsemixer --id 0 --change-volume +5 && aplay $HOME/.config/sounds/blop.wav"
-bindsym XF86AudioLowerVolume exec "pulsemixer --id 0 --change-volume -5 && aplay $HOME/.config/sounds/blop.wav"
 bindsym $mod+F3 exec "pulsemixer --id 0 --change-volume -5 && aplay $HOME/.config/sounds/blop.wav"
-bindsym XF86AudioMute exec "pulsemixer --id 0 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
 bindsym $mod+F1 exec "pulsemixer --id 0 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
-bindsym XF86AudioMicMute exec "pulsemixer --id 1 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
 bindsym $mod+F4 exec "pulsemixer --id 1 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
+
+bindsym XF86AudioRaiseVolume exec "pulsemixer --id 0 --change-volume +5 && aplay $HOME/.config/sounds/blop.wav"
+bindsym XF86AudioLowerVolume exec "pulsemixer --id 0 --change-volume -5 && aplay $HOME/.config/sounds/blop.wav"
+bindsym XF86AudioMute exec "pulsemixer --id 0 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
+bindsym XF86AudioMicMute exec "pulsemixer --id 1 --toggle-mute && aplay $HOME/.config/sounds/blop.wav"
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 
 #Backlight Controls
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down
+
 
 #APPS
 bindsym $mod+Return exec --no-startup-id urxvt

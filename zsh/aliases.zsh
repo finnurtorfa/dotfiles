@@ -1,5 +1,4 @@
 # My Aliases
-
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -alh'
 alias la='ls --color=auto -a'
@@ -11,6 +10,7 @@ alias path='echo $PATH'
 alias matlab='matlab -nodesktop'
 alias gcalc='gnome-calculator'
 alias lesspdf=pdf_to_text
+alias parallel-ssh=pssh
 
 pdf_to_text() {
   pdftotext \
@@ -40,11 +40,6 @@ alias gcb='git checkout -b'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gm='git merge'
-
-#-------------------------------------------------------------
-# ERTile aliases
-#-------------------------------------------------------------
-alias ack='ack --ignore-dir=appchange'
 
 #-------------------------------------------------------------
 # Some common typos

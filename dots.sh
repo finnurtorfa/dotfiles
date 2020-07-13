@@ -45,7 +45,7 @@ ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
 ln -snf ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 
 # ROFI
-ln -snf ${BASEDIR}/Xresources $HOME/.Xresources
+ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
 
 # zsh
 ln -snf ${BASEDIR}/zsh $HOME/.zsh
