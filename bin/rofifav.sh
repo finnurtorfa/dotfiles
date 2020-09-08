@@ -6,7 +6,7 @@ echo "Scelta: $DIALOG"
 sleep .1;
 
 if [ "$DIALOG" = "terminal" ]; then
-	exec urxvt
+	exec urxvtc
 elif [ "$DIALOG" = "firefox" ]; then
 	exec firefox
 elif [ "$DIALOG" = "gedit" ]; then

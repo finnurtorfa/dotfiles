@@ -1,41 +1,108 @@
-! Xresources
+#define G_dark0         #282828
+#define G_dark1         #3c3836
+#define G_dark2         #504945
+#define G_dark3         #665c54
+#define G_dark4         #7c6f64
 
-! Laptop Settings.
-URxvt*font: xft:mononoki:size=10
-URxvt*boldFont: xft:mononoki:bold:size=10
-Xft.dpi: 120
+#define G_medium        #928374
+
+#define G_light0        #fdf4c1
+#define G_light1        #ebdbb2
+#define G_light2        #d5c4a1
+#define G_light3        #bdae93
+#define G_light4        #a89984
+
+#define G_red0          #fb4934
+#define G_green0        #b8bb26
+#define G_yellow0       #fabd2f
+#define G_blue0         #83a598
+#define G_purple0       #d3869b
+#define G_aqua0         #8ec07c
+#define G_orange0       #fe8019
+
+#define G_red1          #9d0006
+#define G_green1        #79740e
+#define G_yellow1       #b57614
+#define G_blue1         #076678
+#define G_purple1       #8f3f71
+#define G_aqua1         #427b58
+#define G_orange1       #af3a03
 
 
-Xft.autohint: 0
-Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
+*background:              G_dark0
+*foreground:              G_light1
+*cursorColor:             G_light1
+*fading:                  40
+*fadeColor:               G_dark0
 
+! Black
+*color0:                  G_dark0
+*color8:                  G_dark1
+
+! Red
+*color1:                  G_red0
+*color9:                  G_red1
+
+! Green
+*color2:                  G_green0
+*color10:                 G_green1
+
+! Yellow
+*color3:                  G_yellow0
+*color11:                 G_yellow1
+
+! Blue
+*color4:                  G_blue0
+*color12:                 G_blue1
+
+! Magenta
+*color5:                  G_purple0
+*color13:                 G_purple1
+
+! Cyan
+*color6:                  G_aqua0
+*color14:                 G_aqua1
+
+! White
+*color7:                  G_light0
+*color15:                 G_light1
+
+!! URxvt Appearance
+*.font: xft:Iosevka:style=Regular:size=11
+*.boldFont: xft:Iosevka:style=Bold:size=11
+*.italicFont: xft:Iosevka:style=Italic:size=11
+*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=11
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
 URxvt.scrollBar: false
-URxvt.internalBorder: 15
-
-! Colors
-#include "/home/fstorfa/.Xresources.d/colors/nord/nord.Xresources"
-
-! Enables copy/paste with Ctrl-Shift-C/V
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
 URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.perl-ext-common: default,clipboard
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
-! ROFI Colors
-! Use extended color scheme
-rofi.color-enabled:                  true
-!! Color scheme for normal row
-rofi.color-normal:                   argb:00000000,  #222222, argb:00000000, argb:00000000,  #a78371
-!! Color scheme for urgent row
-rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  argb:00000000 , #222222
-!! Color scheme for active row
-rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  argb:00000000 , #976490
-!! Color scheme window
-rofi.color-window:                   argb:dddfdfdf,  argb:00000000,  #222222
-!! Separator style (none, dash, solid)
-rofi.separator-style: none
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1

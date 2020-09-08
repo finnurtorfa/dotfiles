@@ -7,8 +7,6 @@ alias mv='mv -v'
 alias grep='grep --color=auto'
 alias cd..='cd ..'
 alias path='echo $PATH'
-alias matlab='matlab -nodesktop'
-alias gcalc='gnome-calculator'
 alias lesspdf=pdf_to_text
 alias parallel-ssh=pssh
 
