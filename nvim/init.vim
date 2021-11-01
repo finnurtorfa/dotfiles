@@ -115,7 +115,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 let g:neomake_c_enabled_makers = ['gcc']
-let g:neomake_go_enabled_makers = [ 'go', 'golangci_lint', 'golint' ]
+let g:neomake_go_enabled_makers = [ 'go', 'golangci_lint' ]
 
 
 " Airline configuration
@@ -143,6 +143,8 @@ let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
 let g:ale_fix_on_save = 1
+let g:ale_go_golangci_lint_options = ''
+
 
 " Plugins to install
 call plug#begin('~/.config/nvim/plugged/')

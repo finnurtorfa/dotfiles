@@ -16,6 +16,14 @@ smart_gaps on
 # font
 font pango:DejaVu Sans Mono 10
 
+# Keyboard layout
+input * xkb_layout "is,dk"
+input * xkb_options "grp:alt_space_toggle"
+
+# Screen resolution and make sure it is placed correctly
+output eDP-1 pos 0 0 res 2560x1440
+output eDP-1 scale 1
+
 # $Mod = Super or Alt?
 set $Mod Mod4
 #set $Mod Mod1
@@ -46,23 +54,22 @@ set $WS0 "10"
 #####################################################
 
 # run with reload
-exec_always --no-startup-id /usr/bin/nitrogen --restore
-exec_always --no-startup-id $HOME/bin/launch.sh
-exec_always --no-startup-id $HOME/bin/screenlayout.sh
+exec_always /usr/bin/nitrogen --restore
+#exec_always $HOME/bin/launch.sh
+exec_always $HOME/bin/waybar.sh
+exec_always $HOME/bin/screenlayout.sh
 
 # run once
-exec --no-startup-id /usr/bin/picom -b &
-exec --no-startup-id /usr/bin/twmnd &
+exec /usr/bin/mako &
 
-exec --no-startup-id i3-msg "workspace 1; exec vivaldi-stable; layout tabbed"
-exec --no-startup-id i3-msg "workspace 2; exec urxvtc"
+exec swaymsg "workspace 1; exec vivaldi-stable; layout tabbed"
+exec swaymsg "workspace 4; exec spotify"
+exec swaymsg "workspace 8; exec slack"
+exec swaymsg "workspace 2; exec urxvtc"
 
-exec --no-startup-id /usr/bin/slack &
-exec --no-startup-id /usr/bin/xss-lock -- i3lock-fancy
-exec --no-startup-id /usr/bin/xrandr --dpi 120 &
-exec --no-startup-id /usr/bin/redshift &
-exec --no-startup-id /usr/bin/udiskie &
-exec --no-startup-id /usr/bin/compton --config $HOME/.config/compton.conf -b
+exec /usr/bin/swayidle timeout 600 $HOME/bin/screenlock.sh &
+exec /usr/bin/redshift -m wayland &
+exec /usr/bin/udiskie &
 
 ###########################################################
 #############         Bindings           ##################
@@ -78,16 +85,15 @@ bindsym $Mod+d exec $HOME/bin/rofr.sh -r
 # core
 bindsym $Mod+Return exec /usr/bin/urxvtc
 bindsym Mod1+w exec /usr/bin/vivaldi-stable
-bindsym Mod1+l exec /usr/bin/i3lock-fancy -p
-
+bindsym Mod1+l exec /usr/bin/swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --grace 2 --fade-in 0.2
 # logout script
 bindsym $Mod+x exec $HOME/bin/rofr.sh -l
 
 #Screenshot
-bindsym $Mod+Shift+p exec --no-startup-id scrot $HOME/Screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym $Mod+Shift+p exec scrot $HOME/Screenshots/%Y-%m-%d-%T-screenshot.png
 
 # ranger
-bindsym $Mod+Shift+f exec --no-startup-id /usr/bin/urxvtc -e ranger
+bindsym $Mod+Shift+f exec /usr/bin/urxvtc -e ranger
 
 # Audio Controls
 bindsym $Mod+F2 exec "pulsemixer --id 0 --change-volume +5 && aplay $HOME/.config/sounds/blop.wav"
@@ -105,8 +111,8 @@ bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 
 #Backlight Controls
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down
+bindsym XF86MonBrightnessUp exec sudo $HOME/bin/bright_up
+bindsym XF86MonBrightnessDown exec sudo $HOME/bin/bright_down
 
 ################################################################
 ###########          Workspace Bindings          ###############
@@ -146,8 +152,8 @@ bindsym $Mod+Shift+r restart
 # reload the configuration file
 bindsym $Mod+Shift+c reload
 
-# exit i3 (logs you out of your X session)
-bindsym $Mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# exit sway (logs you out of your Sway session)
+bindsym $Mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 ########################################################
 ############      Container/Window control  ############

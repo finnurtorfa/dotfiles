@@ -29,43 +29,43 @@
 #define G_orange1       #af3a03
 
 
-*background:              G_dark0
-*foreground:              G_light1
-*cursorColor:             G_light1
+*background:              #282828
+*foreground:              #ebdbb2
+*cursorColor:             #ebdbb2
 *fading:                  40
-*fadeColor:               G_dark0
+*fadeColor:               #282828
 
 ! Black
-*color0:                  G_dark0
-*color8:                  G_dark1
+*color0:                  #282828
+*color8:                  #373836
 
 ! Red
-*color1:                  G_red0
-*color9:                  G_red1
+*color1:                  #fb4934
+*color9:                  #9d0006
 
 ! Green
-*color2:                  G_green0
-*color10:                 G_green1
+*color2:                  #b8bb26
+*color10:                 #79740e
 
 ! Yellow
-*color3:                  G_yellow0
-*color11:                 G_yellow1
+*color3:                  #fabd2f
+*color11:                 #b57614
 
 ! Blue
-*color4:                  G_blue0
-*color12:                 G_blue1
+*color4:                  #83a598
+*color12:                 #076678
 
 ! Magenta
-*color5:                  G_purple0
-*color13:                 G_purple1
+*color5:                  #d3869b
+*color13:                 #8f3f71
 
 ! Cyan
-*color6:                  G_aqua0
-*color14:                 G_aqua1
+*color6:                  #8ec07c
+*color14:                 #427b58
 
 ! White
-*color7:                  G_light0
-*color15:                 G_light1
+*color7:                  #fdf4c1
+*color15:                 #ebdbb2
 
 !! URxvt Appearance
 *.font: xft:Iosevka:style=Regular:size=11
@@ -85,7 +85,7 @@ URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
 
-!! Common Keybinds for Navigations
+!!! Common Keybinds for Navigations
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 URxvt.keysym.Control-Up: \033[1;5A
@@ -93,7 +93,7 @@ URxvt.keysym.Control-Down: \033[1;5B
 URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
-!! Copy Paste & Other Extensions
+!!! Copy Paste & Other Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard

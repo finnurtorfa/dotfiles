@@ -14,6 +14,19 @@ ln -snf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 # i3
 ln -snf ${BASEDIR}/i3 $HOME/.config/i3
 
+# sway
+ln -snf ${BASEDIR}/sway $HOME/.config/sway
+
+# waybar
+ln -snf ${BASEDIR}/waybar $HOME/.config/waybar
+ln -snf ${BASEDIR}/waybar/waybar.sh $HOME/bin
+
+# systemd/User services
+ln -snf ${BASEDIR}/systemd $HOME/.config/systemd
+
+# mako
+ln -snf ${BASEDIR}/mako $HOME/.config/mako
+
 # sounds
 ln -snf ${BASEDIR}/sounds $HOME/.config/sounds
 
@@ -41,6 +54,7 @@ ln -snf ${BASEDIR}/twmn $HOME/.config/twmn
 
 # X
 ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
+ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xdefaults
 
 ## zsh
 ln -snf ${BASEDIR}/zsh $HOME/.zsh
