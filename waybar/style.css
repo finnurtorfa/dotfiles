@@ -1,71 +1,81 @@
 * {
-    border:        none;
-    border-radius: 0;
-    font-family:   Sans;
-    font-size:     15px;
-    box-shadow:    none;
-    text-shadow:   none;
-    transition-duration: 0s;
+  border: none;
+  border-radius: 0;
+  font-family: "Ubuntu Nerd Font";
+  font-size: 13px;
+  min-height: 0;
 }
 
-window {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(35, 31, 32, 0.00);
+window#waybar {
+  background: transparent;
+  color: white;
 }
 
-window#waybar.solo {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(35, 31, 32, 0.85);
+#window {
+  font-family: "Ubuntu";
+  margin-top: 5px;
 }
 
+/*
 #workspaces {
-    margin: 0 5px;
+    padding: 0 5px;
 }
+*/
 
 #workspaces button {
-    padding:    0 5px;
-    color:      rgba(217, 216, 216, 0.4);
-}
-
-#workspaces button.visible {
-    color:      rgba(217, 216, 216, 1);
+  padding: 0 5px;
+  background: transparent;
+  color: white;
+  border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
-    border-top: 3px solid rgba(217, 216, 216, 1);
-    border-bottom: 3px solid rgba(217, 216, 216, 0);
+  color: white;
+  border-top: 2px solid white;
 }
 
-#workspaces button.urgent {
-    color:      rgba(238, 46, 36, 1);
+#tray,
+#custom-japan,
+#custom-germany,
+#temperature,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio {
+  padding: 0 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
-    margin:     0px 6px 0px 10px;
-    min-width:  25px;
+#temperature.critical {
+  color: red;
 }
 
-#clock {
-    margin:     0px 16px 0px 10px;
-    min-width:  140px;
-}
-
-#battery.warning {
-   color:       rgba(255, 210, 4, 1);
-}
-
-#battery.critical {
-    color:      rgba(238, 46, 36, 1);
+#battery icon {
+  color: red;
 }
 
 #battery.charging {
-    color:      rgba(217, 216, 216, 1);
 }
 
-#custom-storage.warning {
-    color:      rgba(255, 210, 4, 1);
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
 }
 
-#custom-storage.critical {
-    color:      rgba(238, 46, 36, 1);
+#battery.warning:not(.charging) {
+  color: white;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#network.disconnected {
+  background: #f53c3c;
 }

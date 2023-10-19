@@ -8,56 +8,63 @@ do
     ln -snf $BASEDIR/bin/$f $HOME/bin
 done
 
-# compton
-ln -snf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
-
-# i3
-ln -snf ${BASEDIR}/i3 $HOME/.config/i3
+## compton
+#ln -snf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
+#
+## i3
+#ln -snf ${BASEDIR}/i3 $HOME/.config/i3
 
 # sway
 ln -snf ${BASEDIR}/sway $HOME/.config/sway
+
+# wofi
+ln -snf ${BASEDIR}/wofi $HOME/.config/wofi
 
 # waybar
 ln -snf ${BASEDIR}/waybar $HOME/.config/waybar
 ln -snf ${BASEDIR}/waybar/waybar.sh $HOME/bin
 
+# alacritty
+ln -snf ${BASEDIR}/alacritty $HOME/.config/alacritty
+
 # systemd/User services
 ln -snf ${BASEDIR}/systemd $HOME/.config/systemd
 
-# mako
-ln -snf ${BASEDIR}/mako $HOME/.config/mako
+## mako
+#ln -snf ${BASEDIR}/mako $HOME/.config/mako
 
 # sounds
 ln -snf ${BASEDIR}/sounds $HOME/.config/sounds
 
-# wallpapers
-ln -snf ${BASEDIR}/wallpapers $HOME/.config/wallpapers
-
-# mplayer
-ln -snf ${BASEDIR}/mplayer $HOME/.mplayer
+## wallpapers
+#ln -snf ${BASEDIR}/wallpapers $HOME/.config/wallpapers
+#
+## mplayer
+#ln -snf ${BASEDIR}/mplayer $HOME/.mplayer
 
 # nvim
 ln -snf ${BASEDIR}/nvim $HOME/.config/nvim
 
-# polybar
-ln -snf ${BASEDIR}/polybar $HOME/.config/polybar
-ln -snf ${BASEDIR}/polybar/launch.sh $HOME/bin
-
-# ranger
-ln -snf ${BASEDIR}/ranger $HOME/.config/ranger
-
-# redshift
-ln -snf ${BASEDIR}/redshift.conf $HOME/.config/redshift.conf
-
-# twmn
-ln -snf ${BASEDIR}/twmn $HOME/.config/twmn
-
-# X
-ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
-ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xdefaults
+## polybar
+#ln -snf ${BASEDIR}/polybar $HOME/.config/polybar
+#ln -snf ${BASEDIR}/polybar/launch.sh $HOME/bin
+#
+## ranger
+#ln -snf ${BASEDIR}/ranger $HOME/.config/ranger
+#
+## redshift
+#ln -snf ${BASEDIR}/redshift.conf $HOME/.config/redshift.conf
+#
+## twmn
+#ln -snf ${BASEDIR}/twmn $HOME/.config/twmn
+#
+## X
+#ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xresources
+#ln -snf ${BASEDIR}/Xresources.d/Xresources $HOME/.Xdefaults
 
 ## zsh
 ln -snf ${BASEDIR}/zsh $HOME/.zsh
 ln -snf ${BASEDIR}/zsh/zshrc $HOME/.zshrc
+ln -snf ${BASEDIR}/zsh/zprofile $HOME/.zprofile
 #
 echo "Done!"
