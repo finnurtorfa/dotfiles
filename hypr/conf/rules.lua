@@ -20,6 +20,10 @@ hl.window_rule({ name = "ws-kitty",   match = { class = "^(kitty-startup-term)$"
 hl.window_rule({ name = "ws-spotify", match = { class = "^(spotify)$" },                workspace = "5 silent" })
 hl.window_rule({ name = "ws-slack",   match = { class = "^(slack)$" },                  workspace = "8 silent" })
 
+-- Open Chrome as a tabbed (grouped) window so future windows opened
+-- alongside it on workspace 1 join its groupbar instead of splitting.
+hl.window_rule({ name = "chrome-tabbed", match = { class = "^(google-chrome-unstable)$" }, group = "new" })
+
 -- Don't steal focus for empty xwayland helper windows
 hl.window_rule({
     name = "fix-xwayland-drags",
