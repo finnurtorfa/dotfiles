@@ -14,11 +14,11 @@ hl.window_rule({
 -- └──────────────────────────────────────────────────────────────┘
 -- "silent" keeps Hyprland from switching focus to the workspace when
 -- these windows open, so autostart doesn't yank you away on login.
-hl.window_rule({ name = "ws-chrome",  match = { class = "^(Google-chrome-unstable)$" }, workspace = "1 silent" })
+hl.window_rule({ name = "ws-chrome",  match = { class = "^(google-chrome-unstable)$" }, workspace = "1 silent" })
 hl.window_rule({ name = "ws-copilot", match = { class = "^(kitty-copilot)$" },          workspace = "2 silent" })
-hl.window_rule({ name = "ws-kitty",   match = { class = "^(kitty)$" },                  workspace = "3 silent" })
+hl.window_rule({ name = "ws-kitty",   match = { class = "^(kitty-startup-term)$" },     workspace = "3 silent" })
 hl.window_rule({ name = "ws-spotify", match = { class = "^(spotify)$" },                workspace = "5 silent" })
-hl.window_rule({ name = "ws-slack",   match = { class = "^(Slack)$" },                  workspace = "8 silent" })
+hl.window_rule({ name = "ws-slack",   match = { class = "^(slack)$" },                  workspace = "8 silent" })
 
 -- Don't steal focus for empty xwayland helper windows
 hl.window_rule({

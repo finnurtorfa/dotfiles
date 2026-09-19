@@ -13,7 +13,7 @@ hl.on("hyprland.start", function()
     -- Startup apps, routed to their workspaces via window rules in conf/rules.lua
     hl.exec_cmd("google-chrome-unstable")
     hl.exec_cmd("kitty --class kitty-copilot -e copilot")
-    hl.exec_cmd("kitty")
+    hl.exec_cmd("kitty --class kitty-startup-term")
     hl.exec_cmd("spotify")
     hl.exec_cmd("slack")
 end)
