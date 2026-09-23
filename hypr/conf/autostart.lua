@@ -9,6 +9,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --watch clipvault store")
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("hyprctl setcursor GoogleDot-Black 24")
+    hl.exec_cmd("hypridle") -- locks the screen after 5 minutes idle, see hypridle.conf
 
     -- Startup apps, routed to their workspaces via window rules in conf/rules.lua
     hl.exec_cmd("google-chrome-unstable")
